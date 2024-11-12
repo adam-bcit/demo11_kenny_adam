@@ -1,13 +1,14 @@
 //----------------------------------------
 //  Your web app's Firebase configuration
 //----------------------------------------
-var firebaseConfig = {
-    apiKey: ,
-    authDomain: ,
-    projectId: ,
-    storageBucket: ,
-    messagingSenderId: ,
-    appId:
+const firebaseConfig = {
+    apiKey: "AIzaSyCbL5XLgexP4IU7nTOn87QMQPU9ODUnxTU",
+    authDomain: "fir-7-1800.firebaseapp.com",
+    projectId: "fir-7-1800",
+    storageBucket: "fir-7-1800.firebasestorage.app",
+    messagingSenderId: "287341543883",
+    appId: "1:287341543883:web:371a63a0ae6c12734ef64e",
+    measurementId: "G-8TMHQYPNHL"
 };
 
 //--------------------------------------------
