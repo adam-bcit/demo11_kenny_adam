@@ -1,22 +1,129 @@
-
 /*-------------------------------------
- * customize material design icon sizes 
+ * Customize material design icon sizes 
  *-------------------------------------
  */
 
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
 
 .responsive {
-    width: 100%;
-    height: auto;
-  }
+  width: 100%;
+  height: auto;
+}
 
 .rounded-circle {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  /* Increase size for more prominence */
+  height: 200px;
   margin: 0 auto;
-  /* Centers the circle horizontally */
+  border: 3px solid #ffd700;
+  /* Gold border around image */
+  box-shadow: 0px 0px 10px #8a2be2;
+  /* Purple glow around image */
+  object-fit: cover;
+}
+
+.material-icons {
+  cursor: pointer;
+}
+
+/*-------------------------------------
+ * Fantasy Theme Styling
+ *-------------------------------------
+ */
+
+body {
+  background-image: url('../images/fantasy_background.png');
+  /* Fantasy-themed background */
+  background-size: cover;
+  color: #f0e6d2;
+  /* Light parchment color */
+  font-family: 'Cinzel', serif;
+  text-align: center;
+}
+
+/* Headers */
+h1,
+h5 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: #ffd700;
+  /* Gold color for titles */
+}
+
+.container-fluid {
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Semi-transparent dark background */
+}
+
+/* Card styling */
+.card {
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Dark, semi-transparent card background */
+  color: #f0e6d2;
+  border: 1px solid #a52a2a;
+  /* Dark red border */
+  box-shadow: 0px 0px 10px #663399;
+  /* Purple glowing shadow */
+}
+
+/* Card hover effect */
+.card:hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px #ffd700;
+  /* Gold glow on hover */
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #663399;
+  /* Magic purple color */
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #8b5e83;
+  /* Lighter purple on hover */
+}
+
+.btn {
+  font-family: 'Cinzel', serif;
+  color: #f0e6d2;
+  border: 1px solid #ffd700;
+  /* Gold border */
+  padding: 10px 20px;
+  font-size: 1.2em;
+}
+
+.btn:hover {
+  background-color: #dda0dd;
+  /* Lighter purple on hover */
+  color: #000;
+}
+
+/* Special container styling for the landing page */
+.container-landing {
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Semi-transparent dark background */
+  padding: 30px;
+  border-radius: 10px;
+  display: inline-block;
+}
+.star-rating .material-icons {
+  color: #ffd700;
+  /* Gold color */
+  font-size: 1.2em;
 }

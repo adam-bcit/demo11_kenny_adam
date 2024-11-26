@@ -2,27 +2,21 @@
 <html lang="en">
 
 <head>
-    <title>My BCIT Project</title>
+    <title>The Enchanted Trails</title>
     <meta name="comp1800 template" content="My 1800 App">
 
-    <!------------------------>
     <!-- Required meta tags -->
-    <!------------------------>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!------------------------------------------>
-    <!-- Bootstrap Library CSS JS CDN go here -->
-    <!------------------------------------------>
+    <!-- Bootstrap Library CSS JS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library and CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -31,70 +25,153 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-    <!-------------------------------------------->
-    <!-- Other libraries and styles of your own -->
-    <!-------------------------------------------->
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <!-- Material Icons for Star Ratings -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- Fantasy Theme Stylesheet -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <style>
+        /* Enhanced Styling for Hike Details Page */
+
+        /* Container styling */
+        .container-landing {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 30px rgba(138, 43, 226, 0.8);
+            /* Purple glow */
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* Title styling */
+        h1,
+        h2 {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #ffd700;
+            /* Gold color */
+            text-shadow: 0px 0px 8px rgba(255, 215, 0, 0.8);
+            /* Glowing effect */
+            margin-bottom: 20px;
+        }
+
+        /* Image styling with border */
+        .hike-img {
+            border: 5px solid #8a2be2;
+            /* Purple border */
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px #ffd700;
+            /* Gold glowing shadow */
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            font-family: 'Cinzel', serif;
+            background-color: #8a2be2;
+            border: none;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #dda0dd;
+            box-shadow: 0px 0px 10px #ffd700;
+            /* Golden glow on hover */
+            color: #000;
+        }
+
+        /* Card styling for reviews */
+        .card {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid #8a2be2;
+            box-shadow: 0px 0px 15px #663399;
+            /* Purple glow effect */
+            color: #f0e6d2;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 10px;
+        }
+
+        .card h5 {
+            color: #ffd700;
+            /* Gold color for review titles */
+            text-shadow: 0px 0px 5px rgba(255, 215, 0, 0.8);
+            /* Glow effect */
+        }
+
+        .star-rating .material-icons {
+            color: #ffd700;
+            /* Golden stars */
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 
 <body>
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-
-    <!-- our own navbar goes here -->
+    <!-- Navbar -->
     <nav id="navbarPlaceholder"></nav>
 
-    <!-- the body of your page goes here -->
-    <!-- stuff -->
-    <div class="container">
-        <h1><span id="hikeName">this hike</span></h1>
-        <div class="position-relative">
-            <img class="hike-img responsive" src="" alt="Hike photo">
-            <button class="btn btn-primary position-absolute bottom-0 end-0 m-3" onclick="saveHikeDocumentIDAndRedirect()">Write Review</button>
+    <!-- Hike Details Section -->
+    <div class="container-landing text-center my-5">
+        <h1 id="hikeName">Enchanted Trail</h1>
+
+        <!-- Hike Image with Border and Review Button -->
+        <div class="position-relative d-inline-block">
+            <img class="hike-img" src="" alt="Hike photo">
+            <button class="btn btn-primary" onclick="saveHikeDocumentIDAndRedirect()">Write Review</button>
         </div>
     </div>
 
-    <div class="container">
-        <h2>Reviews:</h2>
+    <!-- Reviews Section -->
+    <div class="container-landing text-center my-5">
+        <h2>Reviews</h2>
         <div id="details-go-here"></div>
-        <!-- Here is the container for cards with horizontal scrolling -->
-        <div class="card-container">
-            <div id="reviewCardGroup" class="row row-cols-auto">
-                <!-- Add your card templates here -->
-            </div>
+
+        <!-- Card container with horizontal scrolling -->
+        <div class="card-container mt-4">
+            <div id="reviewCardGroup" class="row row-cols-auto"></div>
         </div>
- </div>
-    
+    </div>
+
+    <!-- Review Card Template -->
     <template id="reviewCardTemplate">
-        <div class="card bg-secondary">
-            <img class="card-img-top">
-            <div class="card-body bg-light">
-                <h5 class="title">placeholder</h5>
-                <p class="star-rating"></p>
-                <p class="time">placeholder</p>
-                <p class="level">placeholder</p>
-                <p class="season">placeholder</p>
-                <p class="scrambled">placeholder</p>
-                <p class="flooded">placeholder</p>
-                <br>
-                <p class="description">This card has supporting text below as a natural lead-in to additional content.</p>
+        <div class="card text-light">
+            <img class="card-img-top" src="" alt="User review image">
+            <div class="card-body">
+                <h5 class="title">Review Title</h5>
+                <p class="star-rating">
+                    <span class="material-icons">star</span>
+                    <span class="material-icons">star</span>
+                    <span class="material-icons">star</span>
+                    <span class="material-icons">star_outline</span>
+                    <span class="material-icons">star_outline</span>
+                </p>
+                <p class="time">Posted on: placeholder date</p>
+                <p class="level">Difficulty Level: placeholder</p>
+                <p class="season">Best Season: placeholder</p>
+                <p class="scrambled">Scrambled: placeholder</p>
+                <p class="flooded">Flooded: placeholder</p>
+                <p class="description mt-3">This card has supporting text below as a natural lead-in to additional
+                    content.</p>
             </div>
         </div>
     </template>
 
-    <!-- our own footer goes here-->
+    <!-- Footer -->
     <nav id="footerPlaceholder"></nav>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
+    <!-- JavaScript includes for Firebase and Custom Scripts -->
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/eachHike.js"></script>
-
 </body>
 
 </html>
